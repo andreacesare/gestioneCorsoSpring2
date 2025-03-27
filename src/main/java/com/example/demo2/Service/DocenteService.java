@@ -17,4 +17,16 @@ public class DocenteService {
     public List<DocenteDTO> getAllDocente() {
     return this.backEndClient.getAllDocente();
     }
+
+    public DocenteDTO getDocenteById(Integer id) {
+        return this.backEndClient.getDocenteById(id);
+    }
+
+    public DocenteDTO saveDocente(DocenteDTO docenteDTO) {
+        return this.backEndClient.saveDocente(docenteDTO);
+    }
+
+    public DocenteDTO deleteDocente(Integer id) {
+        return this.backEndClient.deleteDocente(id);
+    }
 }

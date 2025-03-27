@@ -18,4 +18,16 @@ public class CorsoService {
         return restTemplate.getForObject("http://localhost:8080/corso", List.class);
     }
 
+    public CorsoDTO getCorsoById(int id) {
+        return restTemplate.getForObject("http://localhost:8080/corso/getCorsoById/" + id, CorsoDTO.class);
+    }
+
+    public CorsoDTO saveCorso(CorsoDTO corso) {
+        return restTemplate.postForObject("http://localhost:8080/corso/saveCorso", corso, CorsoDTO.class);
+    }
+
+    public void deleteCorso(Integer id) {
+         restTemplate.delete("http://localhost:8080/corso/deleteCorso/"+id);
+    }
+
 }

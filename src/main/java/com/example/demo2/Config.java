@@ -12,6 +12,7 @@ public class Config {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
     @Bean
     public WebClient webClient() {
         return WebClient.builder().baseUrl("http://localhost:8080").build();

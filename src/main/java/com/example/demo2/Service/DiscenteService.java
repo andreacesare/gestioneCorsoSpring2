@@ -16,10 +16,22 @@ public class DiscenteService {
     }
 
     public Flux<DiscenteDTO> getAllDiscente() {
-        return webClient.get()
+        return this.webClient.get()
                 .uri("/discente")
                 .retrieve()
                 .bodyToFlux(DiscenteDTO.class);
+    }
+
+    public Mono<DiscenteDTO> getDiscenteById(Integer id) {
+        return webClient.get().uri("/discente/getDiscenteById/"+id).retrieve().bodyToMono(DiscenteDTO.class);
+    }
+
+    public Mono<DiscenteDTO> saveDiscente(DiscenteDTO discenteDTO) {
+        return this.webClient.post()
+                .uri("/discente/saveDiscente")
+                .bodyValue(discenteDTO)
+                .retrieve()
+                .bodyToMono(DiscenteDTO.class);
     }
 }
 
